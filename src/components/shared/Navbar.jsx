@@ -18,7 +18,7 @@ const Navbar = () => {
     </>
     //All Toys, My Toys, Add A Toy, Blogs, and User profile picture.
     return (
-        <div className=' bg-base-100'>
+        <div className=' bg-base-100 my-4'>
             <div className="navbar md:w-4/5 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -31,7 +31,7 @@ const Navbar = () => {
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">
                         <img className='w-14 mx-4 rounded' src="https://i.ibb.co/QNNk3mw/image.png" alt="" />
-                        Toyland Junction
+                        Toyland <br /> Junction
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -41,13 +41,13 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <>
+                        user ? <div className='flex flex-col md:flex-row items-center'>
                         {
                             user.photoURL ? <img src={user.photoURL} /> :
                             <FaUserAlt className='w-14 mx-2' />
                         }
                         <button className='btn btn-outline border-indigo-600'>Log out</button>
-                        </> :
+                        </div> :
                             <Link className="btn btn-outline border-indigo-600">Login</Link>
                     }
                     {/* add user profile pic */}
