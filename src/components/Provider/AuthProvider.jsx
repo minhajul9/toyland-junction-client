@@ -1,10 +1,12 @@
 import  { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
+import { FaArrowCircleRight } from 'react-icons/fa';
 
 
 export const AuthContext = createContext()
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({children}) => {
@@ -25,9 +27,15 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    const googleSignIn = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider);
+    }
+
     useEffect( () => {
         const unsubscribe =  onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            console.log(user);
             setLoading(false)
         })
 
@@ -41,7 +49,8 @@ const AuthProvider = ({children}) => {
         loading,
         createUser,
         logOut,
-        signIn
+        signIn,
+        googleSignIn
     }
     return (
         <AuthContext.Provider value={authInfo}>

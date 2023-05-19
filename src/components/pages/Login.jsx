@@ -2,10 +2,11 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -16,23 +17,31 @@ const Login = () => {
         const password = form.password.value;
         // console.log(email, password);
         signIn(email, password)
-        .then(() => {
+            .then(() => {
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            console.log(result.user);
             navigate('/')
         })
-        .catch(error => {
-            setError(error.message);
-        })
+        .catch(error => setError(error.message))
     }
 
     return (
         <div className="hero py-28 bg-base-200">
             <div className="hero-content flex flex-col lg:flex-row">
                 <div className="text-center lg:text-left md:mr-40">
-                    
+
                     <img src="https://i.ibb.co/Sf6Jrtf/71c-D80y87z-L-SL1500-removebg-preview.png" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <p className="text-3xl font-bold mt-8 ml-8">Login</p>
+                    <p className="text-3xl font-bold mt-8 ml-8">Login</p>
                     <div className="card-body">
                         <form onSubmit={handleSignIn}>
                             <div className="form-control">
@@ -58,6 +67,15 @@ const Login = () => {
 
                         <p>New here? <Link className='text-orange-600' to='/signup'>Sign Up</Link></p>
                     </div>
+
+                    <div className="divider">OR</div>
+
+                    <div onClick={handleGoogleSignIn} className='text-center py-4'>
+                        <button className="btn btn-circle">
+                            <FaGoogle />
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>

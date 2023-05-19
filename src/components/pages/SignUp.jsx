@@ -1,12 +1,13 @@
-import  { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 const SignUp = () => {
 
     const [error, setError] = useState('')
     const navigate = useNavigate();
-    const {createUser} = useContext(AuthContext);
+    const { createUser, googleSignIn } = useContext(AuthContext);
 
     const handleCreateUser = event => {
         event.preventDefault();
@@ -16,21 +17,30 @@ const SignUp = () => {
         console.log(email, password);
 
         createUser(email, password)
-        .then(result => {
-            console.log(result.user);
-            navigate('/')
-        })
-        .catch(error => {
-            setError(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message);
+            })
 
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user);
+                navigate('/')
+            })
+            .catch(error => setError(error.message))
     }
 
     return (
         <div className="hero py-28 bg-base-200">
             <div className="hero-content flex flex-col lg:flex-row">
                 <div className="text-center lg:text-left md:mr-40">
-                    
+
                     <img src="https://i.ibb.co/Sf6Jrtf/71c-D80y87z-L-SL1500-removebg-preview.png" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -51,7 +61,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" required name='email'  placeholder="email" className="input input-bordered" />
+                                <input type="email" required name='email' placeholder="email" className="input input-bordered" />
                             </div>
 
                             {/* pass */}
@@ -75,6 +85,13 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p>Already have an account? <Link className='text-orange-600' to='/login'>Login</Link></p>
+                    </div>
+                    <div className="divider">OR</div>
+
+                    <div onClick={handleGoogleSignIn} className='text-center py-4'>
+                        <button className="btn btn-circle">
+                            <FaGoogle />
+                        </button>
                     </div>
                 </div>
             </div>
