@@ -6,7 +6,11 @@ import { FaUserAlt } from 'react-icons/fa';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    
+    const handleLogOut = () => {
+        logOut()
+        .then(result => {})
+        .catch(error => console.log(error))
+    }
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
