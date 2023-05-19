@@ -26,7 +26,7 @@ const Toy = ({ toy }) => {
             <td className='text-xl'>Price: ${price}</td>
             <th>
                 <Link>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <button className="btn btn-primary">details</button>
                 </Link>
             </th>
         </tr>

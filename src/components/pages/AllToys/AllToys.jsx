@@ -3,9 +3,10 @@ import useTitle from '../../../Hook/useTitle';
 import { useEffect, useState } from 'react';
 
 const AllToys = () => {
-
+    useTitle('Toyland Junction - All Toys');
     const [toys, setToys] = useState([])
     const [limit, setLimit] = useState(true);
+    const [search, setSearch] = useState('')
 
 
     const handleSelectChange = (event) => {
@@ -21,29 +22,43 @@ const AllToys = () => {
     }
 
     // console.log(toys);
-    useTitle('Toyland Junction - All Toys')
+
+
+    const handleSearch = event => {
+        event.preventDefault();
+        const search = event.target.search.value;
+        setSearch(search)
+
+    }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getAllToys?limit=${limit}`, {
-            method: "POST"
-        })
+        if (search) {
+            fetch(`http://localhost:5000/search?search=${search}`)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [limit])
+        }
+        else {
+            fetch(`http://localhost:5000/getAllToys?limit=${limit}`)
+                .then(res => res.json())
+                .then(data => setToys(data))
+        }
+    }, [limit, search])
 
     return (
         <div>
             {/* search bar */}
             <div className="navbar bg-base-100">
 
-                <div className="flex-end gap-2">
+                <div className="flex-1 justify-between gap-2">
                     <div className="form-control">
-                        <label className="input-group">
-                            <span>Email</span>
-                            <input type="text" placeholder="info@site.com" className="input input-bordered" />
-                        </label>
+                        <form onSubmit={handleSearch}>
+                            <label className="input-group">
+                                <span><input type="submit" value="Search" /></span>
+                                <input type="text" name='search' placeholder="search" className="input input-bordered" />
+                            </label>
+                        </form>
                     </div>
-                    <select onChange={handleSelectChange}>
+                    <select className='p-4 rounded-xl' onChange={handleSelectChange}>
                         <option value="20">20</option>
                         <option value="All">All</option>
                     </select>
