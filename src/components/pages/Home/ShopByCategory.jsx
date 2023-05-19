@@ -38,10 +38,10 @@ const ShopByCategory = () => {
     return (
         <div className='my-8'>
             <Tabs defaultIndex={0} onSelect={(index) => loadTabData(index)}>
-                <TabList>
-                    <Tab>Super Cars</Tab>
-                    <Tab>SUVs</Tab>
-                    <Tab>Trucks</Tab>
+                <TabList className='flex justify-center bg-blue-400 text-black text-2xl font-bold rounded '>
+                    <Tab className='w-48 flex justify-center items-center bg-red-600 py-4'>Super Cars</Tab>
+                    <Tab className='w-48 flex justify-center items-center bg-red-600 '>SUVs</Tab>
+                    <Tab className='w-48 flex justify-center items-center bg-red-600 '>Trucks</Tab>
 
                 </TabList>
 
