@@ -1,7 +1,6 @@
 import  { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
-import { FaArrowCircleRight } from 'react-icons/fa';
 
 
 export const AuthContext = createContext()
@@ -35,7 +34,6 @@ const AuthProvider = ({children}) => {
     useEffect( () => {
         const unsubscribe =  onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log(user);
             setLoading(false)
         })
 

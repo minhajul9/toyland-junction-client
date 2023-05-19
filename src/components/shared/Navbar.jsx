@@ -14,7 +14,7 @@ const Navbar = () => {
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/about'>All Toys</NavLink></li>
+        <li><NavLink to='/alltoys'>All Toys</NavLink></li>
         {
             user && <> <li><NavLink to='/about'>My Toys</NavLink></li>
                 <li><NavLink to='/about'>Add A Toy</NavLink></li>
