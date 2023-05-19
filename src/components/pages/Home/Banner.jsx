@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
             <div className="hero-content absolute md:left-48 top-40 md:top-30 text-neutral-content">
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Toyland Junction</h1>
+                    <h1 className="mb-5 text-white text-5xl font-bold">Toyland Junction</h1>
                     <p className="mb-5">Discover the Joy of Play,<br />
                         Where Imagination Takes Flight.<br />
                         A Wonderland for Kids, both Big and Small,<br />

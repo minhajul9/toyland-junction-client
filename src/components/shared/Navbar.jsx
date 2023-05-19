@@ -4,7 +4,9 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -46,9 +48,9 @@ const Navbar = () => {
                             user.photoURL ? <img src={user.photoURL} /> :
                             <FaUserAlt className='w-14 mx-2' />
                         }
-                        <button className='btn btn-outline border-indigo-600'>Log out</button>
+                        <button onClick={handleLogOut} className='btn btn-outline border-indigo-600'>Log out</button>
                         </div> :
-                            <Link className="btn btn-outline border-indigo-600">Login</Link>
+                            <Link to='/login' className="btn btn-outline border-indigo-600">Login</Link>
                     }
                     {/* add user profile pic */}
                 </div>
