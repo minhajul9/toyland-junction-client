@@ -21,7 +21,7 @@ const Navbar = () => {
                 <li><NavLink to='/addAToy'>Add A Toy</NavLink></li>
             </>
         }
-        <li><NavLink to='/about'>Blogs</NavLink></li>
+        <li><NavLink to='/blogs'>Blogs</NavLink></li>
     </>
     //All Toys, My Toys, Add A Toy, Blogs, and User profile picture.
     return (

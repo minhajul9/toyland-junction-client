@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../Hook/useTitle';
 
 
 const EditToys = () => {
+
+    useTitle('Update Toy')
 
 
     const loadedToy = useLoaderData();
