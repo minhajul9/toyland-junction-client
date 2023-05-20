@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Toy = ({ toy }) => {
 
     // eslint-disable-next-line react/prop-types
-    const { picture_url, name, seller_name, sub_category, price, available_quantity } = toy;
+    const { _id, picture_url, name, seller_name, sub_category, price, available_quantity } = toy;
 
     return (
         <tr>
@@ -25,7 +25,7 @@ const Toy = ({ toy }) => {
             <td>Available: {available_quantity}</td>
             <td className='text-xl'>Price: ${price}</td>
             <th>
-                <Link>
+                <Link to={`/toy/${_id}`}>
                     <button className="btn btn-primary">details</button>
                 </Link>
             </th>

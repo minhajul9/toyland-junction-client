@@ -7,7 +7,7 @@ const TabData = ({ loadedData }) => {
     return (
         <div className='grid md:grid-cols-3'>
             {
-                loadedData.map(toy => <ToyCard key={toy._id} toy={toy}></ToyCard>)
+                loadedData?.map(toy => <ToyCard key={toy._id} toy={toy}></ToyCard>)
             }
 
         </div>

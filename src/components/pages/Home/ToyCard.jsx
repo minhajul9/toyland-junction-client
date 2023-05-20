@@ -2,11 +2,12 @@ import React from 'react';
 import { Rating } from '@smastrom/react-rating';
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 
 const ToyCard = ({ toy }) => {
 
-    const { picture_url, name, price, rating } = toy;
+    const { picture_url, name, price, rating, _id } = toy;
 
     return (
         <div className="md:m-8 card w-96 bg-base-100 shadow-xl">
@@ -22,7 +23,7 @@ const ToyCard = ({ toy }) => {
                         readOnly
                     />
                 <div className="card-actions">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toy/${_id}`}><button className="btn btn-primary">View Details</button></Link>
                 </div>
             </div>
         </div>
