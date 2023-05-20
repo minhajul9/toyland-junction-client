@@ -54,6 +54,7 @@ const MyToys = () => {
 
     return (
         <div>
+            {myToys.length === 0 && <h1 className='text-2xl font-bold text-center my-10'>No Toys</h1>}
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
 

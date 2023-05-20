@@ -29,7 +29,7 @@ const MyToy = ({ toy, handleDelete }) => {
             <td>Available: {available_quantity}</td>
             <td className='text-xl'>Price: ${price}</td>
             <th>
-                <Link to={`/toy/${_id}`}>
+                <Link to={`/editToys/${_id}`}>
                     <button className="btn btn-primary">Edit</button>
                 </Link>
             </th>
