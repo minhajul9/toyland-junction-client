@@ -12,12 +12,13 @@ const Navbar = () => {
         .catch(error => console.log(error))
     }
 
+    // console.log(user?.email);
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/alltoys'>All Toys</NavLink></li>
         {
-            user && <> <li><NavLink to='/about'>My Toys</NavLink></li>
-                <li><NavLink to='/about'>Add A Toy</NavLink></li>
+            user && <> <li><NavLink to={`/myToys`}>My Toys</NavLink></li>
+                <li><NavLink to='/addAToy'>Add A Toy</NavLink></li>
             </>
         }
         <li><NavLink to='/about'>Blogs</NavLink></li>

@@ -1,0 +1,67 @@
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import MyToy from './MyToy';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+const MyToys = () => {
+
+    const { user } = useContext(AuthContext)
+
+    const [myToys, setMyToys] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/myToys/${user.email}`)
+            .then(res => res.json())
+            .then(data => setMyToys(data))
+    }, [user])
+
+    const handleDelete = (id) => {
+
+        Swal.fire({
+            title: 'Are you sure, You want to delete this item?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                fetch(`http://localhost:5000`)
+                Swal.fire(
+                    'Deleted!',
+                    'Item has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+        
+    }
+
+    console.log(myToys);
+
+    return (
+        <div>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+
+                    <tbody>
+                        {
+                            myToys.map(toy => <MyToy
+                                key={toy._id}
+                                toy={toy}
+                                handleDelete={handleDelete}
+                            ></MyToy>)
+                        }
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default MyToys;
