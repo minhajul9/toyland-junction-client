@@ -28,19 +28,29 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(id);
-                fetch(`http://localhost:5000`)
-                Swal.fire(
-                    'Deleted!',
-                    'Item has been deleted.',
-                    'success'
-                )
+                fetch(`http://localhost:5000/toy/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Item has been deleted.',
+                                'success'
+                            )
+                            const remaining = myToys.filter(toy => toy._id !== id);
+                            setMyToys(remaining)
+                        }
+                    })
+
             }
         })
 
-        
+
     }
 
-    console.log(myToys);
+    // console.log(myToys);
 
     return (
         <div>
