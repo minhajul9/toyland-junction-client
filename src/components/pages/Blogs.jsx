@@ -61,6 +61,37 @@ const Blogs = () => {
                 </table>
             </div>
 
+            {/* question 3 */}
+            <div className='bg-base-200 p-8 rounded-lg my-12'>
+                <h2 className="text-2xl font-semibold">Q3- What is Express js? What is Nest js?</h2>
+
+                <p className='bg-base-300 p-4 m-4 rounded-md'>
+                    
+                    <span className='font-bold'>Express js: </span>
+                    Express is a flexible and minimal Node.js framework that offers a wide range of functionality to develop mobile and web apps. It is a simple, minimalist framework that lets programmers use the tools and libraries of their choice to construct applications. Express is very popular among developers due to its simplicity and ease of use.
+                    <br /><br />
+                    <span className='font-bold'>Nest js: </span>
+                    For the purpose of creating effective, scalable, and dependable server-side applications, NestJS is a progressive Node.js framework. It offers a more structured method of creating TypeScript apps and is built on top of Express.js. The modular architecture of NestJS makes it simple to maintain and scale apps as they get bigger.
+
+                </p>
+            </div>
+
+            {/* question 4 */}
+            <div className='bg-base-200 p-8 rounded-lg my-12'>
+                <h2 className="text-2xl font-semibold">Q4- What is MongoDB aggregate and how does it work?</h2>
+
+                <p className='bg-base-300 p-4 m-4 rounded-md'>
+                    
+                Aggregation is the process of going through various phases with a huge collection of documents to process them. A pipeline is made up of the several stages. Filtering, sorting, grouping, reshaping, and altering documents as they move through a pipeline are all possible.
+                <br /><br />
+                Calculating aggregate values for collections of documents is one of Aggregation's most often used use cases. This is comparable to the fundamental aggregation offered by the GROUP BY clause and the COUNT, SUM, and AVG functions in SQL. However, MongoDB Aggregation takes a step further and can also conduct joins that resemble those in a relational database, restructure documents, create and edit existing collections, and more. 
+                <br /><br />
+                While there are other methods of obtaining aggregate data in MongoDB, the aggregation framework is the recommended approach for most work.
+
+
+                </p>
+            </div>
+
 
         </div>
     );
