@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: 'toy/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/toy/${params.id}`)
             },
             {
                 path: 'myToys',
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path: 'editToys/:id',
                 element: <PrivateRoute><EditToys></EditToys></PrivateRoute>, 
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({params}) => fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/toy/${params.id}`)
             },
             {
                 path: 'addAToy',

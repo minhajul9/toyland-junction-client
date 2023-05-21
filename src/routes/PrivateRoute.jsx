@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../components/Provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 const PrivateRoute = ({ children }) => {
 
@@ -12,14 +13,24 @@ const PrivateRoute = ({ children }) => {
             <progress className="progress progress-success w-56"></progress>
         </div>
     }
-    if (user) {
+    else if (user) {
         return children
     }
 
 
-    return (
-        <Navigate to='/login' state={{from: location}}></Navigate>
-    );
+    else{
+        Swal.fire({
+            title: 'Warning!',
+            text: 'You have to log in first to view details',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+          })
+          return (
+            <Navigate to='/login' state={{from: location}}></Navigate>
+        );
+    }
+
+    
 };
 
 export default PrivateRoute;

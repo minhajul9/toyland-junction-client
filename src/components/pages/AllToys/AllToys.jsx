@@ -33,12 +33,12 @@ const AllToys = () => {
 
     useEffect(() => {
         if (search) {
-            fetch(`http://localhost:5000/search?search=${search}`)
+            fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/search?search=${search}`)
             .then(res => res.json())
             .then(data => setToys(data))
         }
         else {
-            fetch(`http://localhost:5000/getAllToys?limit=${limit}`)
+            fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/getAllToys?limit=${limit}`)
                 .then(res => res.json())
                 .then(data => setToys(data))
         }

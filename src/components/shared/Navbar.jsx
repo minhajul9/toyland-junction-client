@@ -50,7 +50,7 @@ const Navbar = () => {
                     {
                         user ? <div className='flex flex-col md:flex-row items-center'>
                         {
-                            user.photoURL ? <img className='avatar w-12 mx-4 rounded-full' src={user.photoURL} /> :
+                            user.photoURL ? <img className='avatar w-12 mx-4 rounded-full' title={user.displayName} src={user.photoURL} /> :
                             <FaUserAlt className='w-14 mx-2' />
                         }
                         <button onClick={handleLogOut} className='btn btn-outline border-indigo-600'>Log out</button>

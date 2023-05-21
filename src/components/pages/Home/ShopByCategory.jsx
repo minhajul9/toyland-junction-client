@@ -22,7 +22,7 @@ const ShopByCategory = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category`, {
+        fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/category`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -24,7 +24,7 @@ const EditToys = () => {
 
         const updates = { price,  available_quantity,  description}
 
-        fetch(`http://localhost:5000/toy/${loadedToy._id}`, {
+        fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/toy/${loadedToy._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
@@ -70,7 +70,7 @@ const EditToys = () => {
                 </div>
                 <div>
                     <label>Price: </label><br />
-                    <input type="text" defaultValue={loadedToy.price} name="price" id="" placeholder='Name' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
+                    <input type="text" defaultValue={loadedToy.price} name="price" id="" placeholder='Price' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
                 </div>
                 <div>
                     <label>Rating: </label><br />
@@ -78,7 +78,7 @@ const EditToys = () => {
                 </div>
                 <div>
                     <label>Available Quantity: </label><br />
-                    <input type="text" defaultValue={loadedToy.available_quantity} name="quantity" id="" placeholder='Name' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
+                    <input type="text" defaultValue={loadedToy.available_quantity} name="quantity" id="" placeholder='Quantity' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
                 </div>
                 <div>
                     <label>Photo URL: </label><br />

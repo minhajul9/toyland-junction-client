@@ -17,7 +17,7 @@ const MyToys = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user.email}/${ascending}`)
+        fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/myToys/${user.email}/${ascending}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user, ascending])
@@ -35,7 +35,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(id);
-                fetch(`http://localhost:5000/toy/${id}`, {
+                fetch(`https://toy-marketplace-server-lemon-eight.vercel.app/toy/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

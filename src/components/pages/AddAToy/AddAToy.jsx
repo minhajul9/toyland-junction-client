@@ -24,7 +24,7 @@ const AddAToy = () => {
 
         const newToy = {name, sub_category, price, rating, available_quantity, picture_url, description, seller_email: user.email, seller_name: user.displayName}
 
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://toy-marketplace-server-lemon-eight.vercel.app/addToy', {
             method: "POST", 
             headers: {
                 "content-type" : "application/json"
@@ -70,7 +70,7 @@ const AddAToy = () => {
                 </div>
                 <div>
                     <label>Price: </label><br />
-                    <input type="text" name="price" id="" placeholder='Name' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
+                    <input type="text" name="price" id="" placeholder='Price' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
                 </div>
                 <div>
                     <label>Rating: </label><br />
@@ -78,7 +78,7 @@ const AddAToy = () => {
                 </div>
                 <div>
                     <label>Available Quantity: </label><br />
-                    <input type="text" name="quantity" id="" placeholder='Name' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
+                    <input type="text" name="quantity" id="" placeholder='Quantity' className='bg-[#ffffffc1] text-black px-2 rounded border w-full py-2' />
                 </div>
                 <div>
                     <label>Photo URL: </label><br />
