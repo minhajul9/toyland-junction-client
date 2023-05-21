@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {FaArrowLeft} from "react-icons/fa"
+import useTitle from '../../Hook/useTitle';
 
 const ErrorPage = () => {
+    useTitle('Error')
     return (
         <div className='text-center w-full my-12'>
             <img className='mx-auto' src="https://i.ibb.co/hK1tC8h/pngegg.png" alt="" />

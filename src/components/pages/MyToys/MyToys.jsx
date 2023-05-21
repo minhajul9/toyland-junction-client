@@ -5,7 +5,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import useTitle from '../../../Hook/useTitle';
 
 const MyToys = () => {
-    useTitle("My Toys")
+    useTitle("Toyland Junction | My Toys")
 
     const { user } = useContext(AuthContext)
 

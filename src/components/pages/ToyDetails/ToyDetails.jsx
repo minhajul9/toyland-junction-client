@@ -10,7 +10,7 @@ const ToyDetails = () => {
     const toy = useLoaderData();
     console.log(toy);
     const {picture_url, name, price, rating, seller_name, seller_email, available_quantity, description} = toy;
-    useTitle(name)
+    useTitle(`Toyland Junction | ${name}`)
 
     // toy name, seller name, seller email, price, rating, available quantity, and detail description
 

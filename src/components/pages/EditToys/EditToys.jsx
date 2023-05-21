@@ -7,7 +7,7 @@ import useTitle from '../../../Hook/useTitle';
 
 const EditToys = () => {
 
-    useTitle('Update Toy')
+    useTitle('Toyland Junction | Update Toy')
 
 
     const loadedToy = useLoaderData();

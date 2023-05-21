@@ -3,7 +3,7 @@ import useTitle from '../../../Hook/useTitle';
 import { useEffect, useState } from 'react';
 
 const AllToys = () => {
-    useTitle('Toyland Junction - All Toys');
+    useTitle('Toyland Junction | All Toys');
     const [toys, setToys] = useState([])
     const [limit, setLimit] = useState(true);
     const [search, setSearch] = useState('')

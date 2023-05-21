@@ -6,7 +6,7 @@ import useTitle from '../../../Hook/useTitle';
 
 const AddAToy = () => {
 
-    useTitle("Add A Toy")
+    useTitle("Toyland Junction | Add A Toy")
     const { user } = useContext(AuthContext)
     
 

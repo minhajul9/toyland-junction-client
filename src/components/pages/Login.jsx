@@ -3,8 +3,11 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../Hook/useTitle';
 
 const Login = () => {
+
+    useTitle('Toyland Junction | Login')
 
     const { signIn, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');

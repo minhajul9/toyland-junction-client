@@ -2,8 +2,11 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../Hook/useTitle';
 
 const SignUp = () => {
+
+    useTitle('Toyland Junction | Sign Up')
 
     const [error, setError] = useState('')
     const navigate = useNavigate();
