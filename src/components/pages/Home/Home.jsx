@@ -27,7 +27,7 @@ const Home = () => {
             </Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
-            <div className='relative'>
+            <div  className='relative'>
             <Banner image='https://i.ibb.co/QFNf8Yw/Marvel-Legends.jpg'>
                 <div className="hero-content absolute md:left-50 top-40 md:top-30 text-neutral-content mb-16">
                     <div className=" text-center">

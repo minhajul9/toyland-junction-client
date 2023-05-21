@@ -8,14 +8,15 @@ const AddAToy = () => {
 
     useTitle("Add A Toy")
     const { user } = useContext(AuthContext)
+    
 
     const handleAddAToy = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const sub_category = form.subCategory.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
+        const price = parseFloat(form.price.value);
+        const rating = parseFloat(form.rating.value);
         const description = form.description.value;
         const picture_url = form.picture_url.value;
         const available_quantity = form.quantity.value;

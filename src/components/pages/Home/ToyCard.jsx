@@ -10,7 +10,7 @@ const ToyCard = ({ toy }) => {
     const { picture_url, name, price, rating, _id } = toy;
 
     return (
-        <div className="md:m-8 card w-96 bg-base-100 shadow-xl">
+        <div data-aos="fade-up" className="md:m-8 card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
                 <img src={picture_url} alt="Shoes" className="rounded-xl" />
             </figure>

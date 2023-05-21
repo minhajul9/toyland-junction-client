@@ -86,7 +86,7 @@ const Blogs = () => {
                 <br /><br />
                 Calculating aggregate values for collections of documents is one of Aggregation's most often used use cases. This is comparable to the fundamental aggregation offered by the GROUP BY clause and the COUNT, SUM, and AVG functions in SQL. However, MongoDB Aggregation takes a step further and can also conduct joins that resemble those in a relational database, restructure documents, create and edit existing collections, and more. 
                 <br /><br />
-                While there are other methods of obtaining aggregate data in MongoDB, the aggregation framework is the recommended approach for most work.
+                
 
 
                 </p>

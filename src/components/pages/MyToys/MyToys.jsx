@@ -10,12 +10,17 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
 
     const [myToys, setMyToys] = useState([]);
+    const [ascending, setAscending] = useState(1);
+
+    const handleSort = event => {
+        setAscending(event.target.value);
+    }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user.email}`)
+        fetch(`http://localhost:5000/myToys/${user.email}/${ascending}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user])
+    }, [user, ascending])
 
     const handleDelete = (id) => {
 
@@ -56,6 +61,21 @@ const MyToys = () => {
 
     return (
         <div>
+            <div className="navbar bg-base-100">
+
+                <div className="flex-1 justify-between gap-2">
+                    <div className="form-control">
+
+                    </div>
+                    <div className='bg-neutral-focus p-4 rounded-lg'>
+                        <label className='mr-4 text-xl text-white font-bold' >Sort By:</label>
+                        <select onChange={handleSort} className='p-4 rounded-xl'>
+                            <option className='p-2' value={1}>Price low to high</option>
+                            <option className='p-2' value={-1}>Price high to low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             {myToys.length === 0 && <h1 className='text-2xl font-bold text-center my-10'>No Toys</h1>}
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
